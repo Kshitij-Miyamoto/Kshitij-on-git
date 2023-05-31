@@ -1,1 +1,1 @@
-Hi random text
+Hi random text, trying to become a git expert

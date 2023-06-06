@@ -1,0 +1,37 @@
+The error message "fatal: Not possible to fast-forward, aborting" typically occurs when you try to perform a git pull and Git cannot perform a fast-forward merge. This situation usually arises when you have made local commits that are not present in the remote branch. To resolve this, you can follow these steps:
+
+Save your local changes (if any): Before proceeding, ensure that you have saved your local changes. You can use git stash to temporarily save your changes or commit them using git commit.
+
+Fetch the latest changes: Instead of using git pull, use git fetch to fetch the latest changes from the remote branch without merging them. Run the following command:
+
+css
+Copy code
+git fetch origin main
+This command fetches the latest commits from the main branch of the remote repository.
+
+Merge the changes manually: After fetching the changes, you can manually merge them into your local branch using git merge. Run the following command:
+
+bash
+Copy code
+git merge origin/main
+This command merges the changes from the remote main branch into your current local branch.
+
+Resolve any conflicts (if necessary): If there are conflicts between your local branch and the remote branch, Git will pause the merge process and indicate the conflicting files. You'll need to manually resolve these conflicts by editing the affected files, removing the conflict markers, and saving the changes.
+
+Commit the merge changes: After resolving the conflicts, stage the changes using git add on the modified files. Then, commit the merge changes with an appropriate commit message:
+
+sql
+Copy code
+git commit -m "Merge changes from remote branch"
+This will create a new merge commit that combines the changes from both branches.
+
+Push the merged changes: Finally, push the merged changes to the remote repository to update the remote branch with your local changes:
+
+css
+Copy code
+git push origin main
+Replace main with the name of your branch if you're working with a branch other than main.
+
+By following these steps, you should be able to resolve the error and successfully merge the changes from the remote branch into your local branch.
+
+git fetch followed by git merge command helped me in reuniting the branches *main together.
